@@ -1,0 +1,197 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>HCT Educ Deployment Decking</title>
+<style>
+:root{--bg:#eef1f6;--pn:#fff;--tx:#1b2433;--mu:#5d6985;--bd:#d3d9e6;--navy:#14306b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f141e;--pn:#1a2130;--tx:#e6eaf2;--mu:#9aa6bd;--bd:#2d374d}}
+*{box-sizing:border-box}html,body{margin:0}body{background:var(--bg);color:var(--tx);font:13px/1.35 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+button,select,input{font:inherit}button{cursor:pointer;border:1px solid var(--bd);background:var(--pn);color:var(--tx);border-radius:6px;padding:5px 10px}button:hover{border-color:#14306b}
+button.pri{background:#14306b;color:#fff;border-color:#14306b}
+.bar{display:flex;gap:8px;align-items:center;padding:10px 14px;flex-wrap:wrap}.bar h1{font-size:16px;margin:0 auto 0 0}
+.wrap{display:grid;grid-template-columns:290px 1fr;gap:12px;padding:0 14px 20px;align-items:start}
+.panel{background:var(--pn);border:1px solid var(--bd);border-radius:8px;padding:10px}.panel h3{margin:0 0 6px;font-size:13px}
+.drow{display:flex;gap:6px;align-items:center;padding:5px 6px;border:1px solid var(--bd);border-radius:6px;margin-bottom:4px;cursor:pointer}.drow.on{border:2px solid #14306b;background:rgba(20,48,107,.08)}
+.drow b{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.drow small,.hint{color:var(--mu)}
+.sw{display:inline-flex;width:15px;height:15px;border-radius:4px;color:#fff;font-size:10px;align-items:center;justify-content:center;flex:none;text-decoration:none}
+.sw.tn{background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.55) 0 3px,transparent 3px 6px);outline:1.5px dashed #333;outline-offset:1px}
+.mem{display:grid;grid-template-columns:1fr 76px auto auto;gap:4px;align-items:center;margin:3px 0}.mem span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.panel input[type=text],.panel input[type=date],.panel select{width:100%;padding:4px;border:1px solid var(--bd);border-radius:5px;background:var(--bg);color:var(--tx)}
+.sheet{background:#fff;color:#1b2433;border:1px solid #cfd6e4;border-radius:6px;padding:12px;min-width:0}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px solid #14306b;padding-bottom:6px;margin-bottom:6px}
+.sh b{font-size:17px;color:#14306b;letter-spacing:.3px}#mt{font-size:15px;font-weight:600}
+.lg{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:11px;color:#46506a;margin-bottom:8px;align-items:center}.lg span{display:inline-flex;gap:4px;align-items:center}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;flex:none}
+.main{display:grid;grid-template-columns:230px 1fr;gap:10px}#roster{order:0}
+.rh{display:flex;justify-content:space-between;align-items:center;font-weight:700;color:#14306b;margin-bottom:4px;gap:4px}
+.rh select{max-width:98px;font-size:11px}
+.rl{column-gap:8px}.pr{border-bottom:1px solid #e6eaf2;padding:3px 2px;break-inside:avoid}.pl{display:flex;gap:5px;align-items:center;cursor:pointer;flex-wrap:wrap}
+.pl .nm{color:#14306b;font-weight:600;font-size:12px;flex:1;min-width:90px}.pl .sw{width:13px;height:13px;font-size:9px}
+.ps{font-size:10px;color:#5d6985;margin-left:15px;width:100%}.ps.lv{color:#b91c1c;font-weight:700}.ps.okp{color:#fff;background:#16a34a;display:inline-block;width:auto;padding:0 7px;border-radius:8px;font-weight:700;-webkit-print-color-adjust:exact;print-color-adjust:exact}.ps.cf{color:#b91c1c;font-weight:700}
+.pe{display:none;background:#f4f6fa;border-radius:5px;padding:5px;margin:3px 0}.pr.open .pe{display:block}.pe label{display:block;font-size:10px;color:#5d6985}.pe input{width:100%;color:#1b2433;background:#fff;border:1px solid #cfd6e4;border-radius:4px}
+.pr .ed{border:0;background:none;color:#8a94ab;padding:0 3px}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);border-left:1px solid #cfd6e4;border-top:1px solid #cfd6e4}
+.dw{background:#14306b;color:#fff;text-align:center;font-size:11px;padding:3px;border-right:1px solid #cfd6e4}
+.c{border-right:1px solid #cfd6e4;border-bottom:1px solid #cfd6e4;min-height:84px;padding:2px;cursor:pointer;min-width:0}.c.o{background:#f3f5f9}.c.wk .dn{color:#b45309}
+.c.s{outline:3px solid #14306b;outline-offset:-3px;background:#eef3ff}.c.f .dn{background:#14306b;color:#fff;border-radius:9px}
+.dn{display:inline-block;min-width:18px;text-align:center;font-weight:700;font-size:11px;padding:0 3px;cursor:pointer}
+.chip{color:#fff;border-radius:4px;font-size:10px;line-height:1.25;padding:2px 4px;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.chip.w{outline:2px solid #b91c1c;outline-offset:1px}
+#teams{margin-top:12px}#teams h4{margin:0 0 6px;color:#14306b;font-size:14px}.tg2{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.tc{border:1px solid #cfd6e4;border-radius:6px;overflow:hidden;break-inside:avoid}.th{color:#fff;padding:4px 7px;-webkit-print-color-adjust:exact;print-color-adjust:exact}.th b{display:block;font-size:12px}.th small{font-size:10px}
+.tc ol{margin:5px 0;padding:0 8px 0 26px;font-size:12px}.tc li.tn{font-style:italic;border-bottom:1px dashed #999}
+#ts{font-size:12px;color:#15803d;min-width:90px}dialog{border:1px solid var(--bd);border-radius:8px;background:var(--pn);color:var(--tx);width:min(560px,92vw)}dialog textarea{width:100%;height:220px;font:11px monospace}
+@media (max-width:900px){.wrap{grid-template-columns:1fr}.main{grid-template-columns:1fr}}
+#sum{display:none;grid-column:2;grid-row:1;background:#fff;color:#1b2433;border:1px solid #cfd6e4;border-radius:6px;padding:12px;min-width:0}
+.gh{font-weight:700;color:#fff;background:#14306b;padding:2px 6px;margin:8px 0 2px;border-radius:3px;font-size:11px;break-after:avoid;-webkit-print-color-adjust:exact;print-color-adjust:exact}.tg{font-size:8px;font-weight:700;border-radius:3px;padding:0 3px;margin-left:3px;color:#fff;vertical-align:super;line-height:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}.tg.EL{background:#b45309}.tg.RI{background:#0f766e}.pl .nm.nd{color:#dc2626}.ed.ndon{color:#fff;background:#dc2626;border-radius:4px}.ndl{margin-top:8px;font-size:10px;color:#b91c1c}
+.cb{font-size:11px;color:#46506a;font-weight:600;margin-left:10px}
+#edit{background:#14234a;color:#fff;border-color:#14306b}#edit h3{color:#fff}#edit .hint,#edit .drow small{color:#d5ddf2}#edit .drow{border-color:#4b608f}#edit .drow.on{background:rgba(255,255,255,.16);border:2px solid #fff}#edit button{background:#fff;color:#14306b;border-color:#9db8ff}#edit input,#edit select{background:#fff!important;color:#1b2433!important}
+#teams{display:none;grid-column:2;grid-row:1;margin-top:0;background:#fff;color:#1b2433;border:1px solid #cfd6e4;border-radius:6px;padding:12px;min-width:0}
+body.vt .sheet{display:none}body.vt #teams{display:block}
+@media (max-width:900px){#teams{grid-column:1}}
+@media print{.tg2{grid-template-columns:repeat(3,1fr)}#teams{border:0;padding:0}body.vt #teams{break-before:auto}}
+.gh[data-a]{cursor:pointer;user-select:none}.gh small{float:right;font-weight:400;opacity:.85}.gb.c{display:none}@media print{.gb.c{display:block}}.pe select{width:100%;color:#1b2433;background:#fff;border:1px solid #cfd6e4;border-radius:4px}
+body.vs .sheet{display:none}body.vs #sum{display:block}
+.ctl{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px;font-size:12px}.ctl label{display:flex;flex-direction:column;gap:2px;color:#46506a}.ctl select{padding:4px;border:1px solid #cfd6e4;border-radius:5px;background:#fff;color:#1b2433}
+.cw{overflow-x:auto}.swk{display:grid;grid-template-columns:repeat(7,minmax(96px,1fr));border-left:1px solid #9aa3b5}.shd div{background:#14306b;color:#fff;text-align:center;font-size:11px;padding:3px;border-right:1px solid #9aa3b5;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sc2{border-right:1px solid #9aa3b5;border-bottom:1px solid #9aa3b5;padding:2px 3px;min-height:48px;font-size:9px;min-width:0}.sc2.out{background:#f3f5f9}.sc2.out .sdn{opacity:.5}.sdn{font-size:10px;color:#14306b}.sdn b{font-size:11px}
+.sd{margin-top:3px}.sdh{color:#fff;font-weight:700;padding:1px 3px;border-radius:3px;font-size:9px;line-height:1.2;-webkit-print-color-adjust:exact;print-color-adjust:exact}.sc2 ol{margin:1px 0 0;padding-left:15px;list-style:decimal}.nl{margin:0;padding-left:18px;column-count:2}.nl li{break-inside:avoid}.sc2 li{line-height:1.25}.sc2 li.tn{font-style:italic}
+@media print{.swk{break-inside:avoid}.sc2{font-size:8px}}
+.st{width:100%;border-collapse:collapse;font-size:11px}.st th{background:#14306b;color:#fff;text-align:left;padding:4px 6px;-webkit-print-color-adjust:exact;print-color-adjust:exact}.st td{border-bottom:1px solid #cfd6e4;padding:4px 6px;vertical-align:top}.st td.sc{width:10px;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}.st tr{break-inside:avoid}.st .tn{font-style:italic;border-bottom:1px dashed #666}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px;font-size:11px}.sg>div{border:1px solid #cfd6e4;border-radius:6px;padding:6px}.sg h5{margin:0 0 4px;color:#14306b;font-size:12px}
+@media (max-width:900px){#sum{grid-column:1}.sg{grid-template-columns:1fr 1fr}}
+@media print{#sum{border:0;padding:0}}
+@page{size:A4 landscape;margin:8mm}
+@media print{body{background:#fff}.noprint,.bar,#edit{display:none!important}.wrap{display:block;padding:0}.sheet{border:0;padding:0}
+.main{display:block}#roster{margin-top:8px}.rl{column-count:4}.c{min-height:66px}#teams{break-before:page}.dot,.sw,.dw{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style></head><body>
+<div class="bar noprint"><h1>Deployment Decking Tool</h1><span id="ts"></span>
+<button data-a="clr">Clear all</button><button class="pri" data-a="save">Save</button><button data-a="bk">Backup / Restore</button><button data-a="vt" id="vtb">Deployment teams</button><button data-a="vs" id="vsb">Summary page</button><button class="pri" data-a="print">Print (A4)</button></div>
+<div class="wrap"><aside id="edit" class="panel noprint"></aside>
+<main class="sheet"><div class="sh"><div><b>HCT EDUC DEPLOYMENT DECKING</b> <span class="cb">Created by Justine Brian Escal, RN | Technology Lead for Education</span><div id="mt"></div></div>
+<div class="noprint"><button data-a="mo" data-i="-1">‹ Prev</button> <button data-a="mo" data-i="1">Next ›</button></div></div>
+<div class="lg"><span><b>Roster:</b></span><span><i class="dot" style="background:#16a34a"></i>Available</span><span><i class="dot" style="background:#2563eb"></i>Deployed (deployment color)</span><span><i class="dot" style="background:#dc2626"></i>On leave</span><span><i class="dot" style="background:#9aa3b5"></i>Past availability date</span>
+<span><b>Team:</b></span><span><u class="sw" style="background:#14306b">★</u>Team Lead</span><span><u class="sw" style="background:#14306b">◆</u>Special lead</span><span><u class="sw tn" style="background:#14306b">?</u>Tentative</span><span style="color:#b91c1c"><b>⚠</b> Conflict (double-booked / on leave)</span><span><b>⏱</b> Specific dates only</span><span><sup class="tg EL">EL</sup> Education Lead</span><span><sup class="tg RI">R&amp;I</sup> Research &amp; Innovation Team</span><span style="color:#b91c1c"><b>Red name</b> = cannot be deployed</span></div>
+<div class="main"><section id="roster"></section><section id="cal"></section></div>
+</main><section id="teams"></section><section id="sum"></section></div>
+<dialog id="dlg"><b>Backup / Restore</b><p class="hint">Copy this text to keep a backup. To restore, paste a backup here and press Restore.</p><textarea id="ta"></textarea><p><button data-a="load" class="pri">Restore</button> <button data-a="cp">Select all</button> <button data-a="cl">Close</button></p></dialog>
+<script>
+const $=s=>document.querySelector(s),E=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const iso=d=>d.toISOString().slice(0,10),P=s=>new Date(s+'T00:00:00Z'),K='hct-decking-v3';
+const rg=(a,b,c,d)=>{let r=[];for(let t=Date.UTC(2026,a-1,b);t<=Date.UTC(2026,c-1,d);t+=864e5)r.push(iso(new Date(t)));return r};
+const fd=s=>P(s).toLocaleDateString('en',{month:'short',day:'numeric',timeZone:'UTC'});
+const PAL=['#1d4ed8','#047857','#c2410c','#7e22ce','#0e7490','#be185d','#4d7c0f','#92400e'];
+function sum(ds){if(!ds.length)return'No dates set';ds=[...ds].sort();let o=[],a=ds[0],b=a;for(let i=1;i<=ds.length;i++){const x=ds[i];if(x&&P(x)-P(b)==864e5){b=x;continue}o.push(a==b?fd(a):fd(a)+'–'+(a.slice(5,7)==b.slice(5,7)?+b.slice(8):fd(b)));a=b=x}return o.join(', ')}
+const NAMES="Herrera, Alexander|Marcos, Jose|Suan, Erwin|Colasito, Kristeen|Chanchico, Ruby|Yap, Sunshine|Ramillano, John Darrel|Delfin, Clarence|Macalalad, Robin|Feliciano, Flordelyn|Generoso, Reynold|Feliciano, Sunshine Ghrace|Domingo, Richard|Bantao, Shiela|Umali, Trishia|Hornilla, Fatima|Parajas, Apple|Avestruz, Maureen|Francisco, Raymart|Dela Paz, Ian|Garcia, Michael|Mendoza, Giselle|Flores, Japeth|Escal, Justine|Marasigan, Ursulaine|Layco, Paul Mark|Ygrubay, Cian|Angeles, Cristina|Soldao, Lou Ivan|Ogrimina, Fredilyn|Fernandez, Ghrace|Capino, Carlota|Aradillos, Ryan|Alejandro, Carissé Lia".split('|');
+let uid=0;const nid=()=>'d'+Date.now().toString(36)+(uid++);
+const T=(n,c,days,m)=>({id:nid(),n,c,days,m:m.split('/').map(s=>{let r='',t=0;while(s&&'!^~'.includes(s[0])){if(s[0]=='~')t=1;else r=s[0]=='!'?'TL':'Lead';s=s.slice(1)}return{p:s.trim(),r,t}})});
+function seed(){return{month:'2026-11',sel:null,focus:'2026-11-05',people:NAMES.map(n=>({id:n,n,l1:'',l2:'',u:''})),deps:[
+T('St. Dominic – Team A','#1d4ed8',[...rg(11,1,11,3),'2026-11-05','2026-11-07'],'!Herrera, Alexander/Marcos, Jose/Suan, Erwin/Colasito, Kristeen/Chanchico, Ruby/Yap, Sunshine'),
+T('MCNP-Cagayan (Travel)','#047857',rg(11,4,11,6),'!Ramillano, John Darrel/Delfin, Clarence/Macalalad, Robin/Feliciano, Flordelyn/Generoso, Reynold/Feliciano, Sunshine Ghrace/Domingo, Richard/Bantao, Shiela'),
+T('St. Paul Univ Manila VR','#7e22ce',['2026-11-05'],'!Umali, Trishia/Hornilla, Fatima'),
+T('St. Dominic – Team B','#0e7490',[...rg(11,8,11,12),'2026-11-14'],'!Parajas, Apple/Yap, Sunshine/Avestruz, Maureen/Francisco, Raymart/Dela Paz, Ian/Garcia, Michael'),
+T('San Isidro College S.I.M. Fair L2-4','#c2410c',[...rg(11,14,11,18),...rg(11,21,11,25)],'!Macalalad, Robin/Mendoza, Giselle/Francisco, Raymart/Flores, Japeth/Bantao, Shiela/Ramillano, John Darrel/~Escal, Justine/Marasigan, Ursulaine'),
+T('Letran-Calamba VR Demo','#be185d',['2026-11-17'],'^Layco, Paul Mark/Herrera, Alexander'),
+T('St. Dominic – Team C','#4d7c0f',[...rg(11,16,11,16),'2026-11-18',...rg(11,20,11,28)],'!Umali, Trishia/Garcia, Michael/Yap, Sunshine/Chanchico, Ruby/Dela Paz, Ian/Feliciano, Flordelyn'),
+T('Wesleyan Univ PH – BLS/First Aid/Disaster','#92400e',rg(11,23,12,4),'!Domingo, Richard/Layco, Paul Mark/Marcos, Jose/Angeles, Cristina/Soldao, Lou Ivan/Ogrimina, Fredilyn/Fernandez, Ghrace/Capino, Carlota/Aradillos, Ryan/Generoso, Reynold'),
+T('Christ the King S.I.M. Fair L2-3','#1e3a8a',rg(11,24,11,28),'!Ygrubay, Cian/Suan, Erwin/Herrera, Alexander/Colasito, Kristeen/Avestruz, Maureen/Parajas, Apple'),
+T('MCNAP Convention (Prince Hotel)','#6d28d9',rg(11,27,11,28),'^Macalalad, Robin/Mendoza, Giselle/Francisco, Raymart/Flores, Japeth/Bantao, Shiela/Ramillano, John Darrel/Escal, Justine/Marasigan, Ursulaine/Alejandro, Carissé Lia/Delfin, Clarence')]}}
+let S,pe=null,ask=null,last=null,QS='',QV='';
+try{S=JSON.parse(localStorage.getItem(K))}catch(e){}
+const G=['Regular Employees','On-Call Employees','AHA'];
+const L0="Elpa, Jose Fernando|Alejandro, Carissé Lia|Angeles, Cristina|Aradillos, Ryan C|Avestruz, Maureen Grace|Bantao, Sheila|Capino, Carlota A.|Colasito, Kristeen Lourdes|Chanchico, Ruby|Dela Paz, Ian|Delfin, Clarence Angelo|Dial, Marvin Ross P.|Domingo, Richard|Escal, Justine Brian|Flores, Japeth John|Feliciano, Flordelyn|Fernandez, Sunshine Ghrace|Francisco, Raymart|Garcia, Michael|Generoso, Reynold|Herrera, Alexander E.|Layco, Paul Mark|Macalalad, Robin James|Marasigan, Ursulaine Mayette|Marcos, Jose|Mendoza, Giselle|Ogrimina, Fredilyn|Parajas, Apple Grace|Ramillano, John Darrel|Soldao, Lou Ivan|Suan, Erwin|Umali, Trishia|Yap, Sunshine|Ygrubay, Cian Breandan".split('|'),L1="Lopez, Ferdinand|Bautista, Michael|Cabalce, Roy|Descalzo, Kim Andrei|Panogalinog, Rona|Sebastian, Heziel Mae|Israel, Alexander Jr.|Galing, Leo|Villamora, Mary Michelynn|Hornilla, Fatima|Bajaro, Liezl C.|Vale, Rizthie".split('|'),L2="Agduyeng, RJ|Abaga, Catherine|Bernelas, Vinalyn|Martinez, Samantha|Matibag, Anna|Torrejos, Paul John|Acelo, Russel|Binohlan, Mau|Martinez, SJ".split('|');
+const mkp=(n,g)=>({id:n,n,g,l1:'',l2:'',u:''});
+function blank(){const t=iso(new Date());return{month:t.slice(0,7),sel:null,focus:t,people:[...L0.map(n=>mkp(n,G[0])),...L1.map(n=>mkp(n,G[1])),...L2.map(n=>mkp(n,G[2]))],deps:[]}}
+if(!S||!S.deps){try{const o=JSON.parse(localStorage.getItem('hct-decking-v2'));if(o&&o.deps){S=o;blank().people.forEach(p=>{if(!S.people.some(q=>q.id==p.id))S.people.push(p)})}}catch(e){}}
+if(!S||!S.deps)S=blank();
+const TG={'Alejandro, Carissé Lia':'EL','Elpa, Jose Fernando':'EL','Escal, Justine Brian':'EL','Flores, Japeth John':'EL','Delfin, Clarence Angelo':'RI','Marasigan, Ursulaine Mayette':'RI'};S.people.forEach(p=>{if(p.tg===undefined)p.tg=TG[p.id]||''});
+function save(msg){try{localStorage.setItem(K,JSON.stringify(S));if(msg)toast('Saved '+new Date().toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'}))}catch(e){if(msg)toast('Save unavailable here – use Backup')}}
+function toast(t){$('#ts').textContent=t}
+const dep=i=>S.deps.find(d=>d.id==i),per=i=>S.people.find(p=>p.id==i);
+function att(m,k){return!m.dates||!m.dates.length||m.dates.includes(k)}
+const mi=m=>m.dates&&m.dates.length?` ⏱ ${sum(m.dates)} only`:'',TGN={EL:'Education Lead',RI:'Research & Innovation Team'},tgs=id=>{const p=per(id);return p&&p.tg?`<sup class="tg ${p.tg}" title="${TGN[p.tg]}">${p.tg=='EL'?'EL':'R&amp;I'}</sup>`:''};
+function ds(p,i){const a=S.deps.filter(d=>d.days.includes(i)&&d.m.some(m=>m.p==p.id&&att(m,i)));let k='ok';if(p.nd)k='nd';else if(p.l1&&p.l2&&i>=p.l1&&i<=p.l2)k='lv';else if(p.u&&i>p.u)k='gone';return{k,a,x:a.length>1||(a.length>0&&k!='ok')}}
+const SY={TL:'★',Lead:'◆'};
+function span(){const f=S.focus;if(S.rs=='d')return[f];const d=P(f),s=+d-d.getUTCDay()*864e5;return[0,1,2,3,4,5,6].map(i=>iso(new Date(s+i*864e5)))}
+function spl(){const r=span();return r.length==1?fd(r[0]):fd(r[0])+' – '+fd(r[6])}
+function wk(p){const R=span(),st=R.map(k=>({d:k,...ds(p,k)})),dp=st.filter(o=>o.a.length),lv=st.filter(o=>o.k=='lv'),fr=st.filter(o=>o.k=='ok'&&!o.a.length),A=[...new Set(dp.flatMap(o=>o.a))],x=st.some(o=>o.x),dl=a=>sum(a.map(o=>o.d));let k,lab;
+if(p.nd){k='nd';lab='CANNOT BE DEPLOYED'+(p.nr?' · '+p.nr:'')}
+else if(fr.length==R.length){k='ok';lab=R.length==1?'AVAILABLE':'AVAILABLE · no deployment this week'}
+else if(dp.length){k='dep';lab='Deployed · '+A.map(d=>d.n).join(' + ')+' ('+dl(dp)+')'+(fr.length?' · free: '+dl(fr):'')}
+else if(lv.length){k='lv';lab='ON LEAVE ('+dl(lv)+')'+(fr.length?' · free: '+dl(fr):'')}
+else{k='gone';lab='Not available (past availability date)'}
+return{k,a:A,x,lab}}
+function rRoster(){const f=S.focus,L=S.rf||'all';let h=`<div class="rh"><span>Simulationists (${S.people.length})</span><select class="noprint" data-f="rf">${[['all','All'],['ok','Available'],['dep','Deployed'],['lv','On leave'],['nd','Cannot deploy']].map(o=>`<option value="${o[0]}" ${L==o[0]?'selected':''}>${o[1]}</option>`).join('')}</select></div><input id="qs" type="search" class="noprint" placeholder="🔍 Search simulationist…" value="${E(QV)}" style="width:100%;padding:5px;margin-bottom:6px;border:1px solid #cfd6e4;border-radius:5px;color:#1b2433;background:#fff"><div class="noprint" style="margin-bottom:6px"><textarea id="np" rows="3" placeholder="New employee name(s), one per line (Last, First)" style="width:100%;padding:4px;border:1px solid #cfd6e4;border-radius:5px;color:#1b2433;background:#fff;font:inherit"></textarea><select id="ng" style="width:100%;padding:4px;margin:3px 0">${G.map(x=>`<option>${x}</option>`).join('')}</select><button class="pri" data-a="ap" style="width:100%">+ Add new employee(s)</button></div><div class="hint" style="font-size:11px;margin-bottom:4px">Availability for <b>${spl()}</b> <select class="noprint" data-f="rs" style="font-size:11px"><option value="w" ${S.rs!='d'?'selected':''}>Whole week</option><option value="d" ${S.rs=='d'?'selected':''}>Single day</option></select><span class="noprint"> · click a date number to change</span></div><div class="rl">`;
+G.forEach(g=>{const gp=S.people.filter(p=>(p.g||G[0])==g&&p.n.toLowerCase().includes(QS));if(!gp.length)return;const cl=QS?false:((S.co||{})[g]===undefined?g!=G[0]:S.co[g]);h+=`<div class="gh" data-a="gt" data-i="${g}">${cl?'▸':'▾'} ${g} (${gp.length}) <small class="noprint">${cl?'show':'hide'}</small></div><div class="gb ${cl?'c':''}">`;gp.forEach(p=>{const s=wk(p),k=s.k;if(L!='all'&&L!=k)return;
+const col=k=='ok'?'#16a34a':k=='dep'?s.a[0].c:(k=='lv'||k=='nd')?'#dc2626':'#9aa3b5';
+const lab=s.lab;
+const sw=S.deps.filter(d=>d.m.some(m=>m.p==p.id)).map(d=>{const m=d.m.find(m=>m.p==p.id);return`<u class="sw ${m.t?'tn':''}" style="background:${d.c}" title="${E(d.n)}${m.t?' (tentative)':''}">${SY[m.r]||''}</u>`}).join('');
+const ex=(p.u?` · available until ${fd(p.u)}`:'')+(p.l1&&p.l2?` · leave ${fd(p.l1)}–${fd(p.l2)}`:'');
+h+=`<div class="pr ${pe==p.id?'open':''}"><div class="pl" data-a="rp" data-i="${E(p.id)}"><i class="dot" style="background:${col}"></i><span class="nm ${p.nd?'nd':''}">${E(p.n)}${tgs(p.id)}</span>${sw}<button class="ed noprint ${p.nd?'ndon':''}" data-a="cnd" data-i="${E(p.id)}" title="Toggle: cannot be deployed">⛔</button><button class="ed noprint" data-a="pe" data-i="${E(p.id)}">✎</button><div class="ps ${k=='lv'||k=='nd'?'lv':k=='ok'?'okp':''} ${s.x?'cf':''}">${s.x?'⚠ ':''}${lab}${E(ex)}</div></div>
+<div class="pe noprint"><label>On leave from<input type="date" data-f="l1" data-i="${E(p.id)}" value="${p.l1}"></label><label>On leave until<input type="date" data-f="l2" data-i="${E(p.id)}" value="${p.l2}"></label><label>Available until (last day)<input type="date" data-f="u" data-i="${E(p.id)}" value="${p.u}"></label><label>Group<select data-f="g" data-i="${E(p.id)}">${G.map(x=>`<option ${(p.g||G[0])==x?'selected':''}>${x}</option>`).join('')}</select></label><label>Role tag<select data-f="tg" data-i="${E(p.id)}"><option value="">None</option><option value="EL" ${p.tg=='EL'?'selected':''}>Education Lead</option><option value="RI" ${p.tg=='RI'?'selected':''}>Research &amp; Innovation Team</option></select></label><label>Cannot be deployed – reason<input type="text" data-f="nr" data-i="${E(p.id)}" value="${E(p.nr||'')}" placeholder="e.g. medical, training, resigned"></label><button data-a="cnd" data-i="${E(p.id)}">${p.nd?'Allow deployment again':'Mark: cannot be deployed'}</button> <button data-a="px" data-i="${E(p.id)}">${ask==p.id?'Click again to remove':'Remove person'}</button></div></div>`});h+='</div>'});
+h+='</div>'+(S.people.length?'':'<div class="hint" style="padding:6px 0">Roster is empty. Type or paste names above, one per line, then press Add.</div>')+(QS&&!S.people.some(p=>p.n.toLowerCase().includes(QS))?'<div class="hint noprint" style="padding:6px 0">No simulationist found.</div>':'');$('#roster').innerHTML=h}
+function rCal(){const[y,m]=S.month.split('-').map(Number),f=new Date(Date.UTC(y,m-1,1)),s=+f-f.getUTCDay()*864e5,n=Math.ceil((f.getUTCDay()+new Date(Date.UTC(y,m,0)).getUTCDate())/7)*7,sd=S.sel&&dep(S.sel);
+$('#mt').textContent=f.toLocaleDateString('en',{month:'long',year:'numeric',timeZone:'UTC'});
+let h=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d=>`<div class="dw">${d}</div>`).join('');
+for(let i=0;i<n;i++){const d=new Date(s+i*864e5),k=iso(d),dd=S.deps.filter(x=>x.days.includes(k));
+h+=`<div class="c ${d.getUTCMonth()!=m-1?'o':''} ${[0,6].includes(d.getUTCDay())?'wk':''} ${sd&&sd.days.includes(k)?'s':''} ${k==S.focus?'f':''}" data-a="day" data-i="${k}"><span class="dn" data-a="foc" data-i="${k}">${d.getUTCDate()}</span>`+
+dd.map(x=>{const w=x.m.some(q=>{const p=per(q.p);return p&&att(q,k)&&ds(p,k).x});return`<div class="chip ${w?'w':''}" style="background:${x.c}" title="${E(x.n)}">${w?'⚠ ':''}${E(x.n)} (${x.m.filter(m=>att(m,k)).length})</div>`}).join('')+'</div>'}
+$('#cal').innerHTML='<div class="cal">'+h+'</div>'}
+function rTeams(){const mn=d=>d.days.length?[...d.days].sort()[0]:'9999',L=[...S.deps].sort((a,b)=>mn(a).localeCompare(mn(b))),asg=new Set(S.deps.flatMap(d=>d.m.map(m=>m.p)));
+let h=`<div class="sh"><div><b>HCT EDUC DEPLOYMENT DECKING — TEAMS</b> <span class="cb">Created by Justine Brian Escal, RN | Technology Lead for Education</span><div id="smt">${S.deps.length} deployments · ${asg.size} simulationists deployed</div></div><div class="hint">Printed ${new Date().toLocaleDateString('en',{dateStyle:'medium'})}</div></div><div class="lg"><span><b>★</b> Team Lead</span><span><b>◆</b> Special lead</span><span><i>Italic</i> = Tentative</span><span>⏱ = specific dates only</span><span><sup class="tg EL">EL</sup> Education Lead</span><span><sup class="tg RI">R&amp;I</sup> Research &amp; Innovation</span><span style="color:#b91c1c">Red = cannot be deployed</span><span><b>⚠</b> Conflict</span></div>`;
+h+=L.length?'<div class="tg2">'+L.map(d=>`<div class="tc"><div class="th" style="background:${d.c}"><b>${E(d.n)}</b><small>${sum(d.days)} · ${d.days.length} day(s) · ${d.m.length} pax</small></div><ol>${d.m.map(m=>{const p=per(m.p),w=p&&d.days.some(k=>att(m,k)&&ds(p,k).x);return`<li class="${m.t?'tn':''}"><span style="${p&&p.nd?'color:#b91c1c;font-weight:700':''}">${E(m.p)}</span>${tgs(m.p)} ${SY[m.r]||''}${m.t?' (tentative)':''}${mi(m)}${w?' ⚠':''}</li>`}).join('')||'<li>No members</li>'}</ol></div>`).join('')+'</div>':'<div class="hint" style="padding:10px 0">No deployments yet. Create one in the editor and its team will appear here.</div>';
+$('#teams').innerHTML=h}
+function rTeamsOld(){$('#teams').innerHTML=!S.deps.length?'<h4>Deployment teams</h4><div class="hint">No deployments yet. Use “+ New deployment” on the left.</div>':'<h4>Deployment teams</h4><div class="tg">'+S.deps.map(d=>`<div class="tc"><div class="th" style="background:${d.c}"><b>${E(d.n)}</b><small>${sum(d.days)}</small></div><ol>${d.m.map(m=>{const p=per(m.p);return`<li class="${m.t?'tn':''}">${E(m.p)}${tgs(m.p)} ${SY[m.r]||''}${m.t?' (tentative)':''}${mi(m)}${p&&d.days.some(k=>ds(p,k).x)?' ⚠':''}</li>`}).join('')||'<li>No members</li>'}</ol></div>`).join('')+'</div>'}
+function rEdit(){const sd=dep(S.sel);let h='<h3>Deployments</h3>'+S.deps.map(d=>`<div class="drow ${d.id==S.sel?'on':''}" data-a="sd" data-i="${d.id}"><i class="dot" style="background:${d.c}"></i><b>${E(d.n)}</b><small>${d.m.length} pax</small></div>`).join('')+'<button data-a="nd" style="width:100%;margin:4px 0 8px">+ New deployment</button>';
+if(sd){h+=`<h3>Edit: ${E(sd.n)}</h3><input type="text" data-f="dn" value="${E(sd.n)}"><div style="display:flex;gap:6px;margin:6px 0;align-items:center"><span>Color</span><input type="color" data-f="dc" value="${sd.c}" style="width:50px;height:26px;padding:0"><button data-a="cd" style="margin-left:auto">Clear dates</button></div><div class="hint">📅 Click calendar days to add/remove dates (Shift+click = range). 👤 Click a name in the roster to add/remove from this team.</div><div style="margin:6px 0;font-size:12px"><b>${sum(sd.days)}</b></div>`+
+sd.m.map(m=>`<div class="mem"><span style="color:${per(m.p)&&per(m.p).nd?'#ff9b9b':'#fff'};font-weight:600">${E(m.p)}${tgs(m.p)}</span><select data-f="mr" data-i="${E(m.p)}"><option value="">Member</option><option value="TL" ${m.r=='TL'?'selected':''}>★ Team Lead</option><option value="Lead" ${m.r=='Lead'?'selected':''}>◆ Lead</option></select><label title="Tentative"><input type="checkbox" data-f="mt" data-i="${E(m.p)}" ${m.t?'checked':''}> T</label><button data-a="mx" data-i="${E(m.p)}">×</button><div style="grid-column:1/-1"><button data-a="md" data-i="${E(m.p)}" style="font-size:11px;padding:1px 6px">📅 ${m.dates&&m.dates.length?'Only: '+sum(m.dates):'Attends all dates'}</button></div>${S.mp==m.p?`<div style="grid-column:1/-1;display:flex;flex-wrap:wrap;gap:3px">${[...sd.days].sort().map(k=>`<button data-a="mdt" data-i="${E(m.p)}" data-k="${k}" style="padding:1px 5px;font-size:11px;${m.dates&&m.dates.includes(k)?'background:#14306b;color:#fff':''}">${P(k).toLocaleDateString('en',{weekday:'short',month:'short',day:'numeric',timeZone:'UTC'})}</button>`).join('')}<button data-a="mda" data-i="${E(m.p)}" style="padding:1px 5px;font-size:11px">All dates</button></div>`:''}</div>`).join('')+`<button data-a="dd" style="width:100%;margin-top:8px">${ask==sd.id?'Click again to delete':'Delete deployment'}</button>`}
+else h+='<div class="hint"><b>Quick start</b><br>1. Add names to the roster (right side, top).<br>2. Press “+ New deployment”, then name it and pick a color.<br>3. With it selected, click calendar days to set dates.<br>4. Click names in the roster to add them to the team.<br>Click any date number to see who is available that day.</div>';$('#edit').innerHTML=h}
+function rSumT(){const mn=d=>d.days.length?[...d.days].sort()[0]:'9999',L=[...S.deps].sort((a,b)=>mn(a).localeCompare(mn(b))),all=S.deps.flatMap(d=>d.days).sort();
+const nm=m=>`<span class="${m.t?'tn':''}">${E(m.p)}${tgs(m.p)}${SY[m.r]||''}${m.t?' (T)':''}${mi(m)}</span>`,rl=(d,r)=>d.m.filter(m=>m.r==r).map(m=>E(m.p)).join(', ')||'—';
+const fy=s=>P(s).toLocaleDateString('en',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'}),asg=new Set(S.deps.flatMap(d=>d.m.map(m=>m.p)));
+const cf=S.people.map(p=>({p,d:[...new Set(S.deps.flatMap(d=>d.m.filter(m=>m.p==p.id).flatMap(m=>d.days.filter(k=>att(m,k)))))].filter(k=>ds(p,k).x).sort()})).filter(o=>o.d.length);
+const box=(t,a)=>`<div><h5>${t}</h5>${a.length?a.join('<br>'):'<span class="hint">None</span>'}</div>`;
+let h=`<div class="sh"><div><b>HCT EDUC DEPLOYMENT DECKING — SUMMARY</b> <span class="cb">Created by Justine Brian Escal, RN | Technology Lead for Education</span><div id="smt">${all.length?fy(all[0])+' – '+fy(all[all.length-1]):'No dates set yet'}</div></div><div class="hint">${S.deps.length} deployments · ${asg.size} of ${S.people.length} simulationists deployed · Printed ${new Date().toLocaleDateString('en',{dateStyle:'medium'})}</div></div>
+<div class="lg"><span><u class="sw" style="background:#14306b">★</u>Team Lead</span><span><u class="sw" style="background:#14306b">◆</u>Special lead</span><span><i>Italic, dashed (T)</i> = Tentative</span><span>*Decking and schedule may change.</span></div>`;
+h+=L.length?`<table class="st"><tr><th></th><th>Deployment</th><th>Dates</th><th>Days</th><th>Team Lead</th><th>Special leads</th><th>Team</th><th>Pax</th></tr>`+L.map(d=>`<tr><td class="sc" style="background:${d.c}"></td><td><b>${E(d.n)}</b></td><td>${sum(d.days)}</td><td>${d.days.length}</td><td>★ ${rl(d,'TL')}</td><td>◆ ${rl(d,'Lead')}</td><td>${d.m.length?'<ol class="nl">'+d.m.map(m=>'<li>'+nm(m)+'</li>').join('')+'</ol>':'—'}</td><td>${d.m.length}</td></tr>`).join('')+'</table>':'<div class="hint" style="padding:10px 0">No deployments yet. Add deployments in the editor and they will be summarised here.</div>';
+h+='<div class="sg">'+box('On leave',S.people.filter(p=>p.l1&&p.l2).map(p=>`${E(p.n)} — ${fd(p.l1)}–${fd(p.l2)}`))+box('Availability limits',S.people.filter(p=>p.u).map(p=>`${E(p.n)} — until ${fd(p.u)}`))+box('Conflicts ⚠',cf.map(o=>`${E(o.p.n)} — ${sum(o.d)}`))+box('Cannot be deployed',S.people.filter(p=>p.nd).map(p=>`<span style="color:#b91c1c">${E(p.n)}</span> — ${E(p.nr||'no reason given')}`))+box('Not yet deployed',S.people.filter(p=>!asg.has(p.id)).map(p=>E(p.n)))+'</div>';return h}
+function rSum(){const dd=S.deps.filter(d=>d.days.length),all=dd.flatMap(d=>d.days).sort(),ms=[...new Set([...all.map(k=>k.slice(0,7)),S.month])].sort(),mv=S.sm&&(S.sm=='all'||ms.includes(S.sm))?S.sm:S.month,fl=S.sd&&dep(S.sd)?S.sd:'',ly=S.sl||'cal';
+const mname=k=>P(k+'-01').toLocaleDateString('en',{month:'long',year:'numeric',timeZone:'UTC'}),op=(v,l,c)=>`<option value="${v}" ${c?'selected':''}>${l}</option>`;
+let h=`<div class="noprint ctl"><label>Summary view<select data-f="sl">${op('cal','Calendar with names (for printing)',ly=='cal')}${op('tbl','Deployment table',ly=='tbl')}</select></label>`+(ly=='cal'?`<label>Month<select data-f="sm">${op('all','Whole decking',mv=='all')}${ms.map(m=>op(m,mname(m),mv==m)).join('')}</select></label><label>Deployment<select data-f="sd">${op('','All deployments',!fl)}${S.deps.map(d=>op(d.id,E(d.n),fl==d.id)).join('')}</select></label>`:'')+'<span class="hint" style="align-self:end">Then press Print (A4)</span></div>';
+if(ly=='tbl'){$('#sum').innerHTML=h+rSumT();return}
+let a,b;if(mv=='all'){a=all[0]||S.month+'-01';b=all[all.length-1]||a}else{a=mv+'-01';b=iso(new Date(Date.UTC(+mv.slice(0,4),+mv.slice(5,7),0)))}
+let s=P(a);s=+s-s.getUTCDay()*864e5;const e=+P(b),W=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],sh=S.deps.filter(d=>!fl||d.id==fl);let w='';
+for(let t=s;t<=e;t+=7*864e5){let r='';for(let i=0;i<7;i++){const d=new Date(t+i*864e5),k=iso(d),out=mv!='all'&&k.slice(0,7)!=mv;
+const cs=sh.filter(x=>x.days.includes(k)).map(x=>`<div class="sd"><div class="sdh" style="background:${x.c}">${E(x.n)}</div><ol>${x.m.filter(m=>att(m,k)).sort((p,q)=>(q.r=='TL')-(p.r=='TL')||(q.r=='Lead')-(p.r=='Lead')).map(m=>`<li class="${m.t?'tn':''}">${E(m.p)}${tgs(m.p)}${SY[m.r]||''}${m.t?' (T)':''}${m.dates&&m.dates.length?' ⏱':''}</li>`).join('')}</ol></div>`).join('');
+r+=`<div class="sc2 ${out?'out':''}"><div class="sdn"><b>${d.toLocaleDateString('en',{month:'short',day:'numeric',timeZone:'UTC'})}</b> ${W[i]}</div>${cs}</div>`}w+=`<div class="swk">${r}</div>`}
+h+=`<div class="sh"><div><b>HCT EDUC DEPLOYMENT DECKING</b> <span class="cb">Created by Justine Brian Escal, RN | Technology Lead for Education</span><div id="smt">${mv=='all'?'Whole decking':mname(mv)}${fl?' · '+E(dep(fl).n):''}</div></div><div class="hint">Printed ${new Date().toLocaleDateString('en',{dateStyle:'medium'})}</div></div><div class="lg"><span><b>★</b> Team Lead</span><span><b>◆</b> Special lead</span><span><i>Italic (T)</i> = Tentative</span><span>⏱ = specific dates only</span><span><sup class="tg EL">EL</sup> Education Lead</span><span><sup class="tg RI">R&amp;I</sup> Research &amp; Innovation</span><span>*Decking and schedule may change.</span></div>`;
+h+=dd.length?`<div class="cw"><div class="swk shd">${W.map(x=>`<div>${x}</div>`).join('')}</div>${w}</div>`:'<div class="hint" style="padding:10px 0">No deployments yet. Add deployments and dates in the editor and they will appear here.</div>';const nl=S.people.filter(p=>p.nd);h+=nl.length?`<div class="ndl"><b>Cannot be deployed:</b> ${nl.map(p=>`<span>${E(p.n)} — ${E(p.nr||'no reason given')}</span>`).join('; ')}</div>`:'';$('#sum').innerHTML=h}
+const rk=m=>m.r=='TL'?0:m.r=='Lead'?1:2,mc=(a,b)=>rk(a)-rk(b)||a.p.localeCompare(b.p,'en',{sensitivity:'base'});
+function R(w){S.people.sort((a,b)=>a.n.localeCompare(b.n,'en',{sensitivity:'base'}));S.deps.forEach(d=>d.m.sort(mc));rRoster();rCal();rTeams();rEdit();rSum();if(w!==0)save()}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t)return;const a=t.dataset.a,i=t.dataset.i,sd=dep(S.sel);
+if(a!='px'&&a!='dd'&&a!='clr')ask=null;
+if(a=='save')save(1);else if(a=='print')window.print();else if(a=='bk'){$('#ta').value=JSON.stringify(S);$('#dlg').showModal()}else if(a=='cl')$('#dlg').close();else if(a=='cp')$('#ta').select();
+else if(a=='load'){try{const x=JSON.parse($('#ta').value);if(!x.deps||!x.people)throw 0;S=x;$('#dlg').close();R()}catch(_){alert('That backup could not be read.')}}
+else if(a=='mo'){const[y,m]=S.month.split('-').map(Number),d=new Date(Date.UTC(y,m-1+ +i,1));S.month=iso(d).slice(0,7);R()}
+else if(a=='foc'){S.focus=i;e.stopPropagation();R()}
+else if(a=='day'){if(!sd){S.focus=i;R();return}
+if(e.shiftKey&&last){const[x,y]=[last,i].sort();let c=P(x);while(iso(c)<=y){const k=iso(c);if(!sd.days.includes(k))sd.days.push(k);c=new Date(+c+864e5)}}
+else sd.days=sd.days.includes(i)?sd.days.filter(k=>k!=i):[...sd.days,i];last=i;S.focus=i;R()}
+else if(a=='sd'){S.sel=S.sel==i?null:i;R(0)}
+else if(a=='nd'){const d={id:nid(),n:'New deployment',c:PAL[S.deps.length%PAL.length],days:[],m:[]};S.deps.push(d);S.sel=d.id;R()}
+else if(a=='dd'){if(ask==sd.id){S.deps=S.deps.filter(d=>d!=sd);S.sel=null;ask=null}else ask=sd.id;R()}
+else if(a=='cd'){sd.days=[];R()}
+else if(a=='rp'){if(!sd){toast('Select a deployment first');return}const j=sd.m.findIndex(m=>m.p==i);if(j<0&&per(i).nd){toast('Cannot be deployed: '+(per(i).nr||'no reason given'));return}j>=0?sd.m.splice(j,1):sd.m.push({p:i,r:'',t:false});R()}
+else if(a=='mx'){sd.m=sd.m.filter(m=>m.p!=i);R()}
+else if(a=='pe'){pe=pe==i?null:i;e.stopPropagation();R(0)}
+else if(a=='px'){if(ask==i){S.people=S.people.filter(p=>p.id!=i);S.deps.forEach(d=>d.m=d.m.filter(m=>m.p!=i));ask=null}else ask=i;R()}
+else if(a=='ap'){let c=0;$('#np').value.split(/\n|;/).map(s=>s.trim()).filter(Boolean).forEach(v=>{if(!per(v)){S.people.push({id:v,n:v,g:$('#ng').value,l1:'',l2:'',u:''});c++}});toast(c?c+' added':'No new names');if(c){S.co=S.co||{};S.co[$('#ng').value]=false}R()}
+else if(a=='md'){S.mp=S.mp==i?null:i;R(0)}
+else if(a=='mdt'||a=='mda'){const m=sd.m.find(m=>m.p==i),k=t.dataset.k;if(a=='mda')m.dates=[];else{m.dates=m.dates||[];m.dates=m.dates.includes(k)?m.dates.filter(x=>x!=k):[...m.dates,k]}R()}
+else if(a=='cnd'){const p=per(i);p.nd=!p.nd;if(p.nd)pe=i;R()}
+else if(a=='gt'){S.co=S.co||{};const c0=S.co[i]===undefined?i!=G[0]:S.co[i];S.co[i]=!c0;R()}
+else if(a=='vs'||a=='vt'){const c=document.body.classList,on=c.contains(a);c.remove('vs','vt');if(!on)c.add(a);$('#vsb').textContent=c.contains('vs')?'Back to calendar':'Summary page';$('#vtb').textContent=c.contains('vt')?'Back to calendar':'Deployment teams'}
+else if(a=='clr'){if(ask=='clr'){S=blank();pe=null;last=null;ask=null;toast('Cleared')}else{ask='clr';toast('Click Clear all again to confirm')}R()}});
+document.addEventListener('change',e=>{const t=e.target,f=t.dataset.f;if(!f)return;const sd=dep(S.sel),p=per(t.dataset.i),m=sd&&sd.m.find(m=>m.p==t.dataset.i);
+if(f=='rf')S.rf=t.value;else if(f=='sl'||f=='sm'||f=='sd'||f=='rs')S[f]=t.value;else if(f=='dn')sd.n=t.value||'Untitled';else if(f=='dc')sd.c=t.value;
+else if(f=='mr'){m.r=t.value;if(t.value=='TL')sd.m.forEach(q=>{if(q!=m&&q.r=='TL')q.r=''})}else if(f=='mt')m.t=t.checked;else if(p)p[f]=t.value;R()});
+document.addEventListener('input',e=>{if(e.target.id!='qs')return;QV=e.target.value;QS=QV.trim().toLowerCase();const c=e.target.selectionStart;rRoster();const q=$('#qs');q.focus();q.setSelectionRange(c,c)});
+R(0);
+</script></body></html>
